@@ -12,10 +12,12 @@ export class ArticleComponent implements OnInit {
 
   constructor(private articlesService: ArticlesService) { }
 
-
+  articles = null;
   async addNewArticle(article){
     var result = await this.articlesService.addNewArticle(article);
+    this.articlesService.fetchData();
   }
+
 
   ngOnInit() {
   }

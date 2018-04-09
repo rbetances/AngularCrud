@@ -1,45 +1,19 @@
 {
   "articles": [
     {
-      "id": 1,
-      "title": "Android AsyncTask Example",
+      "id": 2,
+      "title": "Alcatel One touch",
       "category": "Android"
     },
     {
-      "title": "asdfasdf",
-      "category": "asdfsadf",
-      "id": 2
-    },
-    {
-      "title": "asdfasdf",
-      "category": "asdfasdf",
-      "id": 3
-    },
-    {
-      "title": "asdfa",
-      "category": "asdfasd",
-      "id": 4
-    },
-    {
+      "title": "asdfas",
+      "category": "asdfasdfs",
       "id": 5
     },
     {
+      "title": "Samsung Galaxyyyyyy",
+      "category": "Android",
       "id": 6
-    },
-    {
-      "title": "fdasdfs",
-      "category": "asdfsds",
-      "id": 7
-    },
-    {
-      "title": "aaaaaaaaaaaaa",
-      "category": "aaaaaaaaaaaaa",
-      "id": 8
-    },
-    {
-      "title": "fasdfsadf",
-      "category": "asdfasdfsd",
-      "id": 9
     }
   ]
 }
