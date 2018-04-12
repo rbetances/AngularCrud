@@ -19,10 +19,12 @@ export class ArticlesService {
    selectedArticle: Article;
 
 
-   async addNewArticle(articles): Promise<any>{
+   async addNewArticle(articles:Article): Promise<any>{
 
     //El path del api esta de form relativa y se encuentra en el archivo proxy.conf.json
     //Tambien en el archivo de json package se agrega en la parte de start agregar --proxy-config=proxy.conf.json
+
+    console.log(articles);
     return this.http.post("api/articles/",articles).toPromise();
   }
 

@@ -47,12 +47,13 @@ export class HomeComponent implements OnInit {
     this.selectedItem = arti.category
   }
 
-  async addNewArticle(article){
+  async addNewArticle(article:Article){
 
     article.category = this.selectedItem;
     var result = await this.articlesService.addNewArticle(article);
     this.articlesService.fetchData();
     this.CleanArticles();
+    
 
   }
 

@@ -11,7 +11,7 @@
             <label for="category">Category:</label>
 
             <select [(ngModel)]="selectedItem" name="category">
-              <option  *ngFor="let category of articlesService.categoryList" [ngValue]="category"  >
+              <option  *ngFor="let category of articlesService.categoryList" [ngValue]="category.id"  >
                   {{category.description}}
               </option>
             </select>
