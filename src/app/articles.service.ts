@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestMethod, RequestOptions } from '@angular/http';
 import { Article } from './model';
+import { Category } from './category'
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise'
@@ -14,12 +15,14 @@ export class ArticlesService {
    }
 
    articleList: Article[];
+   categoryList: Category[];
    selectedArticle: Article;
 
 
    async addNewArticle(articles): Promise<any>{
 
-    
+    //El path del api esta de form relativa y se encuentra en el archivo proxy.conf.json
+    //Tambien en el archivo de json package se agrega en la parte de start agregar --proxy-config=proxy.conf.json
     return this.http.post("api/articles/",articles).toPromise();
   }
 
@@ -36,6 +39,15 @@ export class ArticlesService {
     }
   }
 
+
+fetchCategories(){
+  this.http.get("api/categories")
+    .map((data : Response) =>{
+      return data.json() as Category[];
+    }).toPromise().then(x=> {
+      this.categoryList = x;
+    })
+}
 
 
   fetchData(){

@@ -9,7 +9,12 @@
           </div>
           <div class="form-group">
             <label for="category">Category:</label>
-            <input type="text" class="form-control" id="category" name="category" [(ngModel)]="art.category" >
+
+            <select [(ngModel)]="selectedItem" name="category">
+              <option  *ngFor="let category of articlesService.categoryList" [ngValue]="category"  >
+                  {{category.description}}
+              </option>
+            </select>
           </div>
           <div class="form-group">
             <input type="submit" class="btn btn-basic" value="add article" (click)="addNewArticle(art)" > 
@@ -28,7 +33,7 @@
       <tr *ngFor = "let articles of articlesService.articleList">
         <td>{{articles.id}}</td>
         <td>{{articles.title}}</td>
-        <td>{{articles.category}}</td>
+        <td>{{articles.category1}}</td>
         <td>
 
           <button class="btn btn-primary" (click)="showForEdit(articles)" >edit</button>
@@ -43,14 +48,18 @@
         <form >
           <div class="form-group">
             <label for="title" >Title:</label>
-            <input type="text" class="form-control" id="title" name="title" [(ngModel)]="art.title" >
+            <input type="text" class="form-control" id="title" name="title" [(ngModel)]="artEdit.title" >
           </div>
           <div class="form-group">
             <label for="category">Category:</label>
-            <input type="text" class="form-control" id="category" name="category" [(ngModel)]="art.category" >
+            <select [(ngModel)]="selectedItem" name="category">
+                <option  *ngFor="let category of articlesService.categoryList" [ngValue]="category.id"  >
+                    {{category.description}}
+                </option>
+              </select>
           </div>
           <div class="form-group">
-            <input type="submit" class="btn btn-basic" value="Edit article" (click)="editArticle(art.id,art)"> 
+            <input type="submit" class="btn btn-basic" value="Edit article" (click)="editArticle(artEdit.id,artEdit)"> 
           </div>
         </form>
     </div>
