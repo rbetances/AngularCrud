@@ -19,20 +19,20 @@ export class ArticlesService {
 
    async addNewArticle(articles): Promise<any>{
 
-    console.log(articles);
-    return this.http.post("http://localhost:3000/articles/",articles).toPromise();
+    
+    return this.http.post("api/articles/",articles).toPromise();
   }
 
    async editArticle(id, art): Promise<any>{
 
-    return this.http.put("http://localhost:3000/articles/"+id,art).toPromise();
+    return this.http.put("api/articles/"+id,art).toPromise();
   }
 
   async deleteArticle(id: number): Promise<any>{
 
     if (confirm("Are you sure do you want delete this record") == true)
     {
-      return this.http.delete("http://localhost:3000/articles/"+id).toPromise();
+      return this.http.delete("api/articles/"+id).toPromise();
     }
   }
 
@@ -40,7 +40,7 @@ export class ArticlesService {
 
   fetchData(){
 
-    this.http.get("http://localhost:3000/articles")
+    this.http.get("api/articles")
     .map((data : Response) =>{
       return data.json() as Article[];
     }).toPromise().then(x=> {
