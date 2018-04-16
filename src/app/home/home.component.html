@@ -10,7 +10,7 @@
           <div class="form-group">
             <label for="category">Category:</label>
 
-            <select [(ngModel)]="selectedItem" name="category">
+            <select [(ngModel)]="art.category" name="category">
               <option  *ngFor="let category of articlesService.categoryList" [ngValue]="category.id"  >
                   {{category.description}}
               </option>
@@ -26,12 +26,10 @@
   <div class="row">
     <div class="col">
     <table class="table table-striped">
-      <th>id</th>
       <th>title</th>
       <th>category</th>
       <th>operation</th>
       <tr *ngFor = "let articles of articlesService.articleList">
-        <td>{{articles.id}}</td>
         <td>{{articles.title}}</td>
         <td>{{articles.category1}}</td>
         <td>
@@ -52,7 +50,7 @@
           </div>
           <div class="form-group">
             <label for="category">Category:</label>
-            <select [(ngModel)]="selectedItem" name="category">
+            <select [(ngModel)]="artEdit.category" name="category">
                 <option  *ngFor="let category of articlesService.categoryList" [ngValue]="category.id"  >
                     {{category.description}}
                 </option>

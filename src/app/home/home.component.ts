@@ -16,8 +16,6 @@ export class HomeComponent implements OnInit {
   art: Article = new Article();
   artEdit:Article = new Article();
 
-  selectedItem: number;
-
   CleanArticles(){
     this.art = new Article();
   }
@@ -44,27 +42,24 @@ export class HomeComponent implements OnInit {
     this.showEdit = true;
     this.articlesService.selectedArticle = Object.assign({},arti);
     this.artEdit = this.articlesService.selectedArticle;
-    this.selectedItem = arti.category
   }
 
   async addNewArticle(article:Article){
 
-    article.category = this.selectedItem;
     var result = await this.articlesService.addNewArticle(article);
     this.articlesService.fetchData();
     this.CleanArticles();
-    
-
   }
 
   async editArticle(id, article:Article){
-    article.id = this.selectedItem;
+
     var result = await this.articlesService.editArticle(id,article);
     this.articlesService.fetchData();
     this.showEdit = false;
   }
 
   async deleteArticle(id){
+
     var result = await this.articlesService.deleteArticle(id);
     this.articlesService.fetchData();
   }
